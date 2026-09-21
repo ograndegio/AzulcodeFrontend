@@ -12,7 +12,7 @@ RUN npm run build -- --configuration production
 
 FROM nginx:alpine
 
-COPY --from=build /app/dist/out-tsc/browser/ /usr/share/nginx/html
+COPY --from=build /app/dist/portalAzulcode/browser/ /usr/share/nginx/html/
 
 COPY nginx-configuration.conf /etc/nginx/conf.d/default.conf
 
