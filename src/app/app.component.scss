@@ -2,9 +2,17 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	--site-header-height: 87px;
 }
 
 .app-main {
 	flex: 1;
 	display: block;
+	padding-top: var(--site-header-height);
+}
+
+@media (max-width: 760px) {
+	:host {
+		--site-header-height: 69px;
+	}
 }
