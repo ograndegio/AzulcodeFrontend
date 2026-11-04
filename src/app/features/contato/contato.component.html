@@ -1,21 +1,55 @@
-<main class="container section-space">
-  <h1>Contato</h1>
-  <p>Vamos conversar sobre seu próximo produto digital.</p>
+<main class="contact-page">
+  <section class="contact-heading">
+    <div class="container">
+      <p class="eyebrow">Contato</p>
+      <h1>Vamos conversar sobre o seu desafio?</h1>
+      <p>Conte um pouco sobre o que precisa funcionar melhor. A equipe da Azulcode pode ajudar a pensar os próximos passos.</p>
+    </div>
+  </section>
 
-  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
-    <label for="name">Nome</label>
-    <input id="name" type="text" formControlName="name" />
-    <small *ngIf="isInvalid('name')">Informe seu nome.</small>
+  <section class="contact-content">
+    <div class="container contact-layout">
+      <aside class="contact-info">
+        <p class="eyebrow">Fale diretamente</p>
+        <h2>Um bom projeto começa com uma conversa clara.</h2>
+        <p>Use o formulário ou escreva para o e-mail oficial da Azulcode.</p>
+        <a class="contact-email" href="mailto:contato@azulcode.com.br">contato@azulcode.com.br <span aria-hidden="true">↗</span></a>
+        <div class="contact-note">
+          <span class="contact-note-mark" aria-hidden="true">i</span>
+          <p>O formulário prepara uma mensagem no seu aplicativo de e-mail. Você revisa e envia por lá.</p>
+        </div>
+      </aside>
 
-    <label for="email">E-mail</label>
-    <input id="email" type="email" formControlName="email" />
-    <small *ngIf="isInvalid('email')">Informe um e-mail válido.</small>
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-field">
+          <label for="name">Nome <span aria-hidden="true">*</span></label>
+          <input id="name" type="text" formControlName="name" autocomplete="name" [attr.aria-invalid]="isInvalid('name')" aria-describedby="name-error" />
+          <small id="name-error" *ngIf="isInvalid('name')">Informe seu nome.</small>
+        </div>
 
-    <label for="message">Mensagem</label>
-    <textarea id="message" rows="5" formControlName="message"></textarea>
-    <small *ngIf="isInvalid('message')">A mensagem é obrigatória.</small>
+        <div class="form-field">
+          <label for="email">E-mail <span aria-hidden="true">*</span></label>
+          <input id="email" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="isInvalid('email')" aria-describedby="email-error" />
+          <small id="email-error" *ngIf="isInvalid('email')">Informe um e-mail válido.</small>
+        </div>
 
-    <button type="submit">Enviar mensagem</button>
-    <p class="success" *ngIf="sent">Mensagem enviada com sucesso.</p>
-  </form>
+        <div class="form-field">
+          <label for="company">Empresa <span class="optional">(opcional)</span></label>
+          <input id="company" type="text" formControlName="company" autocomplete="organization" />
+        </div>
+
+        <div class="form-field">
+          <label for="message">Como podemos ajudar? <span aria-hidden="true">*</span></label>
+          <textarea id="message" rows="5" formControlName="message" [attr.aria-invalid]="isInvalid('message')" aria-describedby="message-error"></textarea>
+          <small id="message-error" *ngIf="isInvalid('message')">Escreva uma breve mensagem.</small>
+        </div>
+
+        <button type="submit">Preparar mensagem <span aria-hidden="true">→</span></button>
+        <p class="form-status" role="status" *ngIf="mailClientRequested">
+          O aplicativo de e-mail foi solicitado. Revise a mensagem e envie por ele; se não abrir, escreva diretamente para
+          <a href="mailto:contato@azulcode.com.br">contato@azulcode.com.br</a>.
+        </p>
+      </form>
+    </div>
+  </section>
 </main>

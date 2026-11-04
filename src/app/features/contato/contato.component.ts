@@ -11,11 +11,12 @@ import { ContactFormValidators } from '../../core/validators/contact-form.valida
 })
 export class ContatoComponent {
   submitted = false;
-  sent = false;
+  mailClientRequested = false;
 
   form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required, ContactFormValidators.noWhitespaceOnly()]],
     email: ['', [Validators.required, Validators.email]],
+    company: [''],
     message: ['', [Validators.required, ContactFormValidators.noWhitespaceOnly()]]
   });
 
@@ -26,17 +27,14 @@ export class ContatoComponent {
 
   submit(): void {
     this.submitted = true;
-    this.sent = false;
+    this.mailClientRequested = false;
 
     if (this.form.invalid) {
       return;
     }
 
-    this.contactService.submitContactForm(this.form.getRawValue()).subscribe(() => {
-      this.sent = true;
-      this.form.reset();
-      this.submitted = false;
-    });
+    window.location.href = this.contactService.createMailtoLink(this.form.getRawValue());
+    this.mailClientRequested = true;
   }
 
   isInvalid(field: 'name' | 'email' | 'message'): boolean {

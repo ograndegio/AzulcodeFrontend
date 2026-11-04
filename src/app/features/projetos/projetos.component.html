@@ -1,15 +1,42 @@
-<main class="container section-space">
-  <h1>Projetos</h1>
-  <p>Catálogo completo de projetos com foco em performance, escalabilidade e experiência digital.</p>
+<main class="projects-page">
+  <section class="projects-hero">
+    <div class="container">
+      <p class="eyebrow">Projetos</p>
+      <h1>Tecnologia aplicada a produtos reais.</h1>
+      <p>Conheça projetos que fazem parte do portfólio da Azulcode e as tecnologias associadas a cada um.</p>
+    </div>
+  </section>
 
-  <div class="projects-grid">
-    <article class="project-card" *ngFor="let project of projects$ | async">
-      <img [src]="project.image" [alt]="project.name" loading="lazy" />
-      <div class="project-content">
-        <h2>{{ project.name }}</h2>
-        <p>{{ project.description }}</p>
-        <a [href]="project.url" target="_blank" rel="noopener noreferrer">Conhecer projeto</a>
-      </div>
-    </article>
-  </div>
+  <section class="project-list-section">
+    <div class="container">
+      <article class="project-detail" *ngFor="let project of projects$ | async">
+        <a class="project-visual" [href]="project.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Visitar ' + project.name">
+          <img [src]="project.image" [alt]="'Imagem do projeto ' + project.name" loading="lazy" />
+          <span class="visual-link">Acessar projeto <b aria-hidden="true">↗</b></span>
+        </a>
+        <div class="project-information">
+          <p class="project-index">PORTFÓLIO AZULCODE</p>
+          <h2>{{ project.name }}</h2>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-stack-block">
+            <h3>Tecnologias informadas</h3>
+            <ul class="project-stack">
+              <li *ngFor="let technology of project.stack">{{ technology }}</li>
+            </ul>
+          </div>
+          <a class="project-text-link" [href]="project.url" target="_blank" rel="noopener noreferrer">
+            Visitar {{ project.name }} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+      <p class="portfolio-note">Os detalhes apresentados refletem as informações cadastradas no portfólio. Não foram adicionadas métricas ou resultados não documentados.</p>
+    </div>
+  </section>
+
+  <section class="projects-cta">
+    <div class="container projects-cta-layout">
+      <div><p class="eyebrow">Seu projeto pode ser o próximo</p><h2>Vamos entender o desafio da sua operação.</h2></div>
+      <a routerLink="/contato" class="button">Fale com a gente <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 </main>

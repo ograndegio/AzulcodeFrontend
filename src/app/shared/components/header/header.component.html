@@ -1,11 +1,11 @@
 <header class="site-header">
   <div class="container nav-wrap">
-    <a routerLink="/" class="brand" aria-label="AZULCODE Home">
-      <img src="assets/images/corp/logo.png" alt="AZULCODE TECNOLOGIA DA INFORMAÇÃO LOGO" width="40" height="40" />
-      <span class="brand-text">AZULCODE TECNOLOGIA DA INFORMAÇÃO</span>
+    <a routerLink="/" class="brand" aria-label="Azulcode — página inicial">
+      <img src="assets/images/corp/logoClaro.png" alt="" width="50" height="53" />
+      <span class="brand-text">AZULCODE<small>TECNOLOGIA DA INFORMAÇÃO</small></span>
     </a>
 
-    <button class="menu-toggle" type="button" (click)="toggleMenu()" aria-label="Abrir menu">
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Alternar menu principal">
       <span></span><span></span><span></span>
     </button>
 

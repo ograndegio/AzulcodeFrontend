@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg: #f8fafc;
-  --bg-alt: #f1f5f9;
+  --bg: #ffffff;
+  --bg-alt: #f5f7fa;
   --surface: #ffffff;
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
-  --text: #0f172a;
-  --text-soft: #64748b;
-  --text-muted: #94a3b8;
-  --primary: #2563eb;
-  --primary-2: #1d4ed8;
-  --header-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
-  --card-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  --line: #e1e6ed;
+  --line-strong: #c6d0dc;
+  --text: #142338;
+  --text-soft: #5f6e81;
+  --text-muted: #8491a1;
+  --primary: #1d5fc4;
+  --primary-2: #174e9f;
+  --header-shadow: 0 4px 18px rgba(20, 35, 56, 0.05);
+  --card-shadow: 0 12px 30px rgba(20, 35, 56, 0.08);
 }
 
 * {
@@ -30,6 +30,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -50,9 +51,22 @@ h4 {
   margin: 0 auto;
 }
 
+::selection {
+  color: #fff;
+  background: var(--primary);
+}
+
 a {
   color: var(--primary);
   transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #8bb6f3;
+  outline-offset: 3px;
 }
 
 img {
