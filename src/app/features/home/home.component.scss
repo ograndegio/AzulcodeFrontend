@@ -3,8 +3,8 @@
 }
 
 .hero-section {
-  background: #fff;
-  border-bottom: 1px solid var(--line);
+  background: #142338;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .hero-layout {
@@ -20,18 +20,19 @@
 .hero-copy h1 {
   max-width: 700px;
   margin: 1.35rem 0 1.5rem;
+  color: #fff;
   font-size: clamp(3rem, 5.2vw, 5.15rem);
   line-height: 1.02;
   letter-spacing: -0.055em;
 
   span {
-    color: var(--primary);
+    color: #8bb6f3;
   }
 }
 
 .eyebrow {
   margin: 0;
-  color: #53647b;
+  color: #9ebbe2;
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -48,13 +49,13 @@
 .eyebrow-line {
   width: 1.8rem;
   height: 2px;
-  background: var(--primary);
+  background: #8bb6f3;
 }
 
 .hero-description {
   max-width: 560px;
   margin: 0;
-  color: var(--text-soft);
+  color: #c0cad6;
   font-size: clamp(1rem, 1.4vw, 1.16rem);
   line-height: 1.8;
 }
@@ -103,15 +104,15 @@
 .button-text {
   padding-left: 0;
   padding-right: 0;
-  color: var(--text);
+  color: #fff;
 
   span {
-    color: var(--primary);
+    color: #8bb6f3;
     font-size: 1.25rem;
   }
 
   &:hover {
-    color: var(--primary);
+    color: #9cc4ff;
   }
 }
 
